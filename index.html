@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DealList</title>
+    <meta
+      name="description"
+      content="DealList helps grocery shoppers compare flyer deals and regular prices across nearby stores in Canada and the United States."
+    />
+    <style>
+      :root {
+        --ink: #142238;
+        --muted: #5f6877;
+        --paper: #fff8ee;
+        --card: #ffffff;
+        --line: #eadfd0;
+        --accent: #e64a3a;
+        --accent-soft: #fff0ed;
+        --green: #20a85a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(230, 74, 58, 0.10), transparent 34rem),
+          linear-gradient(180deg, #fffaf3 0%, #fff8ee 52%, #ffffff 100%);
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 36px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 44px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        font-size: 1.15rem;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-links a,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.72fr);
+        gap: 42px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--green);
+        background: #effaf3;
+        border: 1px solid #d6f1df;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.86rem;
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 7vw, 5.3rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .title-accent {
+        color: var(--accent);
+      }
+
+      .lead {
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+        line-height: 1.62;
+        max-width: 680px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .button.primary {
+        color: #ffffff;
+        background: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 0 14px 28px rgba(230, 74, 58, 0.18);
+      }
+
+      .visual {
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: 0 22px 55px rgba(20, 34, 56, 0.10);
+      }
+
+      .visual img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 48px;
+      }
+
+      .feature {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        min-height: 132px;
+      }
+
+      .feature strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.52;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        margin-top: 52px;
+        padding-top: 24px;
+        font-size: 0.92rem;
+      }
+
+      footer a {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(100% - 24px, 1080px);
+          padding-top: 18px;
+        }
+
+        .nav {
+          align-items: flex-start;
+          margin-bottom: 28px;
+        }
+
+        .nav-links {
+          gap: 8px;
+        }
+
+        .nav-links a {
+          min-height: 36px;
+          padding: 8px 10px;
+          font-size: 0.82rem;
+        }
+
+        .hero,
+        .features {
+          grid-template-columns: 1fr;
+        }
+
+        .visual {
+          order: -1;
+          padding: 22px;
+          border-radius: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label="DealList home">
+          <img src="deal-cart-header.png" alt="" />
+          <span>DealList</span>
+        </a>
+        <div class="nav-links">
+          <a href="https://sinastxs.github.io/Privacy-Policy-DealList/">Privacy</a>
+          <a href="https://sinastxs.github.io/Privacy-Policy-DealList/TERMS_OF_USE">Terms</a>
+          <a href="mailto:sinastxs@gmail.com?subject=DealList%20Support%20Request">Report bug</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Grocery deals for Canada and the US</div>
+          <h1>Deal<span class="title-accent">List</span></h1>
+          <p class="lead">
+            DealList helps grocery shoppers compare flyer deals and available regular prices across nearby stores,
+            build shopping lists, and estimate totals before checkout.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://play.google.com/store/apps/details?id=com.deallist.shopping">View on Google Play</a>
+            <a class="button" href="mailto:sinastxs@gmail.com?subject=DealList%20Support%20Request">Contact support</a>
+          </div>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <img src="deal-cart-header.png" alt="" />
+        </div>
+      </section>
+
+      <section class="features" aria-label="DealList features">
+        <article class="feature">
+          <strong>Flyer deal search</strong>
+          <p>Find local grocery flyer items by postal code or ZIP code and compare nearby store offers.</p>
+        </article>
+        <article class="feature">
+          <strong>Smart shopping lists</strong>
+          <p>Add items from search or flyer browsing, adjust quantities, and estimate your total.</p>
+        </article>
+        <article class="feature">
+          <strong>Multilingual support</strong>
+          <p>Use DealList in multiple languages while matching grocery data against English store listings.</p>
+        </article>
+      </section>
+
+      <footer>
+        <span>© 2026 DealList. All rights reserved.</span>
+        <span>
+          <a href="app-ads.txt">app-ads.txt</a>
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>
