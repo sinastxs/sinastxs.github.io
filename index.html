@@ -286,6 +286,29 @@
         color: var(--muted);
         line-height: 1.58;
         font-size: 1.02rem;
+        min-height: 78px;
+      }
+
+      .feature-demo {
+        margin-top: 20px;
+        border: 1px solid #f1e1d3;
+        border-radius: 18px;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: 0 16px 34px rgba(20, 34, 56, 0.10);
+      }
+
+      .feature-demo video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        max-height: 360px;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .feature-demo.narrow video {
+        aspect-ratio: 54 / 101;
       }
 
       .support-note {
@@ -389,6 +412,14 @@
           min-height: 0;
         }
 
+        .feature p {
+          min-height: 0;
+        }
+
+        .feature-demo video {
+          max-height: 420px;
+        }
+
         .support-note {
           align-items: flex-start;
         }
@@ -447,6 +478,11 @@
           </span>
           <strong>Flyer deal search</strong>
           <p>Find local grocery flyer items by postal code or ZIP code and compare nearby store offers.</p>
+          <div class="feature-demo narrow" aria-label="DealList flyer deal search preview">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="Flyer_deal_Search/flyer_deal_search_demo_cropped.mp4" type="video/mp4" />
+            </video>
+          </div>
         </article>
         <article class="feature">
           <span class="feature-icon" aria-hidden="true">
@@ -461,6 +497,11 @@
           </span>
           <strong>Smart shopping lists</strong>
           <p>Add items from search or flyer browsing, adjust quantities, and estimate your total.</p>
+          <div class="feature-demo narrow" aria-label="DealList smart shopping list preview">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="Smart%20shopping%20lists/smart_shopping_lists_demo_cropped.mp4" type="video/mp4" />
+            </video>
+          </div>
         </article>
         <article class="feature">
           <span class="feature-icon" aria-hidden="true">
@@ -476,6 +517,11 @@
           </span>
           <strong>Multilingual support</strong>
           <p>Use DealList in multiple languages while matching grocery data against English store listings.</p>
+          <div class="feature-demo" aria-label="DealList language switching preview">
+            <video autoplay muted loop playsinline preload="metadata" poster="deallist-feature-graphic-flyers-20260806.png">
+              <source src="deallist-language-transition.mp4" type="video/mp4" />
+            </video>
+          </div>
         </article>
       </section>
 
