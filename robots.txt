@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sinastxs.github.io/sitemap.xml
+Sitemap: https://deallist.ca/sitemap.xml
