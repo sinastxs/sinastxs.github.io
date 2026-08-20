@@ -415,6 +415,7 @@
       const minSubmitDelayMs = 4000;
       const submitCooldownMs = 60000;
       const cooldownKey = "deallist-support-last-submit";
+      let cooldownTimer = null;
 
       function value(id) {
         return document.getElementById(id).value.trim();
@@ -431,6 +432,38 @@
         gmailFallback.href = `https://mail.google.com/mail/?view=cm&fs=1&to=info@deallist.ca&su=${subject}&body=${body}`;
       }
 
+      function getCooldownRemainingMs() {
+        const lastSubmitAt = Number.parseInt(localStorage.getItem(cooldownKey) || "0", 10);
+        return lastSubmitAt ? Math.max(0, submitCooldownMs - (Date.now() - lastSubmitAt)) : 0;
+      }
+
+      function startSubmitCooldown() {
+        if (cooldownTimer) {
+          window.clearInterval(cooldownTimer);
+        }
+
+        const updateButton = () => {
+          const remainingMs = getCooldownRemainingMs();
+          if (remainingMs <= 0) {
+            window.clearInterval(cooldownTimer);
+            cooldownTimer = null;
+            submitButton.disabled = false;
+            submitButton.textContent = "Submit message";
+            return;
+          }
+
+          submitButton.disabled = true;
+          submitButton.textContent = `Wait ${Math.ceil(remainingMs / 1000)}s`;
+        };
+
+        updateButton();
+        cooldownTimer = window.setInterval(updateButton, 1000);
+      }
+
+      if (getCooldownRemainingMs() > 0) {
+        startSubmitCooldown();
+      }
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
@@ -445,8 +478,8 @@
           return;
         }
 
-        const lastSubmitAt = Number.parseInt(localStorage.getItem(cooldownKey) || "0", 10);
-        if (lastSubmitAt && Date.now() - lastSubmitAt < submitCooldownMs) {
+        if (getCooldownRemainingMs() > 0) {
+          startSubmitCooldown();
           setStatus("error", "Please wait about one minute before sending another message.");
           return;
         }
@@ -491,10 +524,10 @@
           localStorage.setItem(cooldownKey, String(Date.now()));
           setStatus("success", "Thanks, your message was received. We will review it as soon as possible.");
           form.reset();
+          startSubmitCooldown();
         } catch (error) {
           console.error(error);
           setStatus("error", "We could not submit the form. Please try again, or use the Gmail button below.");
-        } finally {
           submitButton.disabled = false;
           submitButton.textContent = "Submit message";
         }
