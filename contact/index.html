@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Support - DealList</title>
+    <meta
+      name="description"
+      content="Contact DealList support, report a bug, or send feedback to DEALLIST SOFTWARE LTD."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://deallist.ca/contact/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <style>
+      :root {
+        --ink: #142238;
+        --muted: #5f6877;
+        --paper: #fff8ee;
+        --card: #ffffff;
+        --line: #eadfd0;
+        --accent: #e64a3a;
+        --accent-dark: #cf382b;
+        --accent-soft: #fff0ed;
+        --green: #20a85a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(230, 74, 58, 0.10), transparent 34rem),
+          linear-gradient(180deg, #fffaf3 0%, #fff8ee 52%, #ffffff 100%);
+        min-height: 100vh;
+      }
+
+      a {
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .page {
+        width: min(900px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 48px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 34px;
+      }
+
+      .brand,
+      .back {
+        display: inline-flex;
+        align-items: center;
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      .brand {
+        gap: 10px;
+        font-size: 1.15rem;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .back {
+        min-height: 40px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.75);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .back:hover {
+        transform: translateY(-2px);
+        border-color: rgba(230, 74, 58, 0.32);
+        box-shadow: 0 12px 28px rgba(20, 34, 56, 0.1);
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 20px 55px rgba(20, 34, 56, 0.10);
+        overflow: hidden;
+      }
+
+      .intro {
+        padding: clamp(24px, 5vw, 44px);
+        background: linear-gradient(180deg, rgba(255, 248, 238, 0.86), rgba(255, 255, 255, 0.92));
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.65;
+        max-width: 720px;
+      }
+
+      .direct {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: var(--accent-soft);
+        color: #8b2b24;
+        text-decoration: none;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+        padding: clamp(22px, 5vw, 40px);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .hint {
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid #dfe3ea;
+        border-radius: 14px;
+        padding: 13px 14px;
+        color: var(--ink);
+        background: #ffffff;
+        font: inherit;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: rgba(230, 74, 58, 0.72);
+        box-shadow: 0 0 0 4px rgba(230, 74, 58, 0.12);
+      }
+
+      .hidden-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      button,
+      .secondary-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border-radius: 14px;
+        padding: 12px 18px;
+        font: inherit;
+        font-weight: 900;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      button {
+        border: 1px solid var(--accent);
+        color: #ffffff;
+        background: var(--accent);
+        box-shadow: 0 14px 28px rgba(230, 74, 58, 0.18);
+      }
+
+      button:hover:not(:disabled) {
+        transform: translateY(-2px);
+        background: var(--accent-dark);
+        box-shadow: 0 18px 34px rgba(230, 74, 58, 0.26);
+      }
+
+      button:disabled {
+        cursor: wait;
+        opacity: 0.72;
+      }
+
+      .secondary-action {
+        border: 1px solid var(--line);
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.76);
+        text-decoration: none;
+      }
+
+      .secondary-action:hover {
+        transform: translateY(-2px);
+        border-color: rgba(230, 74, 58, 0.32);
+        background: #ffffff;
+        box-shadow: 0 12px 28px rgba(20, 34, 56, 0.10);
+      }
+
+      .status {
+        display: none;
+        padding: 14px 16px;
+        border-radius: 16px;
+        line-height: 1.5;
+        font-weight: 800;
+      }
+
+      .status.success {
+        display: block;
+        color: #0f6b38;
+        background: #eefaf2;
+        border: 1px solid #cdeed9;
+      }
+
+      .status.error {
+        display: block;
+        color: #9f2f25;
+        background: #fff0ed;
+        border: 1px solid #ffd3cc;
+      }
+
+      footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-align: center;
+      }
+
+      @media (max-width: 700px) {
+        .page {
+          width: min(100% - 24px, 900px);
+          padding-top: 18px;
+        }
+
+        .nav,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav" aria-label="Site navigation">
+        <a class="brand" href="/" aria-label="DealList home">
+          <img src="/deal-cart-header.png" alt="" />
+          <span>DealList</span>
+        </a>
+        <a class="back" href="/">Back to DealList</a>
+      </nav>
+
+      <section class="card">
+        <div class="intro">
+          <h1>Contact Support</h1>
+          <p class="lead">
+            Send a bug report, support request, or feedback directly to DealList. Your message will be stored securely
+            in our support inbox and forwarded to DEALLIST SOFTWARE LTD.
+          </p>
+          <a class="direct" href="mailto:info@deallist.ca">Support email: info@deallist.ca</a>
+        </div>
+
+        <form id="support-form">
+          <div class="grid">
+            <label>
+              Name
+              <input id="name" name="name" autocomplete="name" maxlength="120" placeholder="Your name" />
+            </label>
+            <label>
+              Email <span class="hint">Optional, but needed if you want a reply</span>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com" />
+            </label>
+          </div>
+
+          <div class="grid">
+            <label>
+              Request type
+              <select id="category" name="category">
+                <option value="Bug report">Bug report</option>
+                <option value="Support request">Support request</option>
+                <option value="Data issue">Data issue</option>
+                <option value="Feature feedback">Feature feedback</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label>
+              Platform
+              <select id="platform" name="platform">
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="Website">Website</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="grid">
+            <label>
+              App version
+              <input id="appVersion" name="appVersion" maxlength="40" placeholder="e.g. 4.6" />
+            </label>
+            <label>
+              Device / region
+              <input id="device" name="device" maxlength="160" placeholder="e.g. Pixel 8, V5H or 98101" />
+            </label>
+          </div>
+
+          <label>
+            Message
+            <textarea
+              id="message"
+              name="message"
+              maxlength="3000"
+              required
+              placeholder="Tell us what happened, what you searched for, or what you expected to see."
+            ></textarea>
+          </label>
+
+          <label class="hidden-field" aria-hidden="true">
+            Leave this field empty
+            <input id="company" name="company" tabindex="-1" autocomplete="off" />
+          </label>
+
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+
+          <div class="actions">
+            <button id="submit-button" type="submit">Submit message</button>
+            <a id="gmail-fallback" class="secondary-action" href="https://mail.google.com/mail/?view=cm&fs=1&to=info@deallist.ca&su=DealList%20Support%20Request">
+              Open Gmail instead
+            </a>
+          </div>
+        </form>
+      </section>
+
+      <footer>&copy; 2026 DEALLIST SOFTWARE LTD. All rights reserved.</footer>
+    </main>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import {
+        addDoc,
+        collection,
+        getFirestore,
+        serverTimestamp
+      } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCwb3LDDkr5-Vnld5DGRphyBHIibPD1WsA",
+        authDomain: "cartwise-db97e.firebaseapp.com",
+        projectId: "cartwise-db97e",
+        storageBucket: "cartwise-db97e.firebasestorage.app",
+        messagingSenderId: "377478904234",
+        appId: "1:377478904234:web:3005c1a4b8d2812bfd93d3"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const form = document.getElementById("support-form");
+      const status = document.getElementById("status");
+      const submitButton = document.getElementById("submit-button");
+      const gmailFallback = document.getElementById("gmail-fallback");
+      const formLoadedAt = Date.now();
+      const minSubmitDelayMs = 4000;
+      const submitCooldownMs = 60000;
+      const cooldownKey = "deallist-support-last-submit";
+
+      function value(id) {
+        return document.getElementById(id).value.trim();
+      }
+
+      function setStatus(type, message) {
+        status.className = `status ${type}`;
+        status.textContent = message;
+      }
+
+      function buildMailFallback(messageBody) {
+        const subject = encodeURIComponent(`DealList ${value("category") || "Support"} Request`);
+        const body = encodeURIComponent(messageBody);
+        gmailFallback.href = `https://mail.google.com/mail/?view=cm&fs=1&to=info@deallist.ca&su=${subject}&body=${body}`;
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const message = value("message");
+        if (!message) {
+          setStatus("error", "Please enter a message before submitting.");
+          return;
+        }
+
+        if (Date.now() - formLoadedAt < minSubmitDelayMs) {
+          setStatus("error", "Please wait a moment before submitting.");
+          return;
+        }
+
+        const lastSubmitAt = Number.parseInt(localStorage.getItem(cooldownKey) || "0", 10);
+        if (lastSubmitAt && Date.now() - lastSubmitAt < submitCooldownMs) {
+          setStatus("error", "Please wait about one minute before sending another message.");
+          return;
+        }
+
+        if (value("company")) {
+          setStatus("success", "Thanks, your message was received.");
+          form.reset();
+          return;
+        }
+
+        const payload = {
+          name: value("name"),
+          email: value("email"),
+          category: value("category"),
+          platform: value("platform"),
+          appVersion: value("appVersion"),
+          device: value("device"),
+          message,
+          pageUrl: window.location.href,
+          userAgent: navigator.userAgent.slice(0, 500),
+          createdAt: serverTimestamp()
+        };
+
+        const fallbackBody = [
+          `Name: ${payload.name || "Not provided"}`,
+          `Email: ${payload.email || "Not provided"}`,
+          `Category: ${payload.category}`,
+          `Platform: ${payload.platform}`,
+          `App version: ${payload.appVersion || "Not provided"}`,
+          `Device / region: ${payload.device || "Not provided"}`,
+          "",
+          payload.message
+        ].join("\n");
+        buildMailFallback(fallbackBody);
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+        setStatus("", "");
+
+        try {
+          await addDoc(collection(db, "support_messages"), payload);
+          localStorage.setItem(cooldownKey, String(Date.now()));
+          setStatus("success", "Thanks, your message was received. We will review it as soon as possible.");
+          form.reset();
+        } catch (error) {
+          console.error(error);
+          setStatus("error", "We could not submit the form. Please try again, or use the Gmail button below.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit message";
+        }
+      });
+    </script>
+  </body>
+</html>
