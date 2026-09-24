@@ -25,30 +25,24 @@
       property="og:description"
       content="Compare grocery flyer deals across nearby stores in Canada and the United States."
     />
-    <meta property="og:image" content="https://deallist.ca/deallist-feature-graphic-flyers-20260806.png" />
+    <meta property="og:image" content="https://deallist.ca/assets/demo/03-search-demo.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="DealList - Grocery Deals and Price Comparison" />
     <meta
       name="twitter:description"
       content="Find local grocery flyer deals, compare prices, and build smarter shopping lists."
     />
-    <meta name="twitter:image" content="https://deallist.ca/deallist-feature-graphic-flyers-20260806.png" />
+    <meta name="twitter:image" content="https://deallist.ca/assets/demo/03-search-demo.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "DealList",
         "applicationCategory": "ShoppingApplication",
-        "operatingSystem": "Android",
+        "operatingSystem": "iOS",
         "description": "DealList helps shoppers compare grocery flyer deals across nearby stores in Canada and the United States.",
         "url": "https://deallist.ca/",
-        "image": "https://deallist.ca/deallist-feature-graphic-flyers-20260806.png",
-        "downloadUrl": "https://play.google.com/store/apps/details?id=com.deallist.shopping",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
+        "image": "https://deallist.ca/assets/demo/03-search-demo.png",
         "publisher": {
           "@type": "Organization",
           "name": "DealList"
@@ -436,6 +430,8 @@
         }
       }
     </style>
+      <link rel="stylesheet" href="/demo.css" />
+    <script type="module" src="/demo.js"></script>
   </head>
   <body>
     <main class="page">
@@ -445,91 +441,50 @@
           <span>DealList</span>
         </a>
         <div class="nav-links">
-          <a href="https://sinastxs.github.io/Privacy-Policy-DealList/">Privacy</a>
-          <a href="https://sinastxs.github.io/Privacy-Policy-DealList/TERMS_OF_USE">Terms</a>
-          <a href="/contact/">Report bug</a>
+          <a href="#demo">Try the demo</a><a href="https://deallist.ca/Privacy-Policy-DealList/">Privacy</a>
+          <a href="https://deallist.ca/Privacy-Policy-DealList/TERMS_OF_USE">Terms</a>
+          <a href="/contact/">Contact</a>
         </div>
       </nav>
 
       <section class="hero">
         <div>
           <div class="eyebrow">Grocery deals for Canada and the US</div>
-          <h1>Deal<span class="title-accent">List</span></h1>
+          <h1>A little planning.<br /><span class="title-accent">A smarter shop.</span></h1>
           <p class="lead">
             DealList helps grocery shoppers compare flyer deals across nearby stores,
             build shopping lists, and estimate totals before checkout.
           </p>
           <div class="actions">
-            <a class="button primary" href="https://play.google.com/store/apps/details?id=com.deallist.shopping">View on Google Play</a>
-            <a class="button" href="/contact/">Contact support</a>
+            <a class="button primary" href="#demo">Try the interactive demo <span aria-hidden="true">&nbsp;→</span></a>
+            <a class="button" href="#screens">Explore the iOS app</a>
           </div>
         </div>
-        <div class="visual" aria-hidden="true">
-          <img src="deallist-feature-graphic-flyers-20260806.png" alt="" />
-        </div>
+        <figure class="visual"><img src="assets/demo/03-search-demo.png" width="852" height="1846" alt="Illustrative DealList iOS search screen with a fictional milk offer" /><figcaption>iOS app preview · Illustrative demo data</figcaption></figure>
       </section>
 
+      <section id="demo" class="demo-section" aria-labelledby="demo-title">
+        <div class="section-heading"><div><span class="kicker">TAKE IT FOR A SPIN</span><h2 id="demo-title">Your next shop, simplified.</h2></div><p>Compare a few groceries and build a list.<br />No account or download needed.</p></div>
+        <div class="demo-shell">
+          <div class="demo-top"><strong>Deal<span>List</span> <small>Interactive demo</small></strong><span class="demo-badge">Example prices · CAD</span></div>
+          <p class="demo-disclosure">Fictional stores and illustrative prices. This demo does not show live offers or fetch AI results.</p>
+          <nav class="demo-tabs" aria-label="Demo views"><button type="button" data-view="flyers" aria-pressed="false">Flyers</button><button type="button" data-view="search" aria-pressed="true">Search & compare</button><button type="button" data-view="list" aria-pressed="false">My list <span id="list-count">0</span></button></nav>
+          <div id="demo-content"></div><p id="demo-status" class="demo-status" role="status" aria-live="polite"></p>
+          <noscript><p>Enable JavaScript to try the interactive demo, or explore the app images below.</p></noscript>
+        </div>
+      </section>
       <section class="features" aria-label="DealList features">
-        <article class="feature">
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48">
-              <path d="M13 7h20l5 5v25a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4V11a4 4 0 0 1 4-4Z" />
-              <path d="M32 7v7h7" />
-              <path d="M16 17h10" />
-              <path d="M16 25h8" />
-              <circle cx="31" cy="29" r="7" />
-              <path d="m36 34 5 5" />
-            </svg>
-          </span>
-          <strong>Flyer deal search</strong>
-          <p>Find local grocery flyer items by postal code or ZIP code and compare nearby store offers.</p>
-          <div class="feature-demo narrow" aria-label="DealList flyer deal search preview">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="Flyer_deal_Search/flyer_deal_search_demo_cropped.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </article>
-        <article class="feature">
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48">
-              <path d="M17 9h14l2 5h4a3 3 0 0 1 3 3v22a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V17a3 3 0 0 1 3-3h4l2-5Z" />
-              <path d="M17 14h14" />
-              <path d="m15 24 3 3 5-6" />
-              <path d="M28 25h8" />
-              <path d="m15 34 3 3 5-6" />
-              <path d="M28 35h8" />
-            </svg>
-          </span>
-          <strong>Smart shopping lists</strong>
-          <p>Add items from search or flyer browsing, adjust quantities, and estimate your total.</p>
-          <div class="feature-demo narrow" aria-label="DealList smart shopping list preview">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="Smart%20shopping%20lists/smart_shopping_lists_demo_cropped.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </article>
-        <article class="feature">
-          <span class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48">
-              <circle cx="22" cy="22" r="15" />
-              <path d="M7 22h30" />
-              <path d="M22 7c4 4 6 9 6 15s-2 11-6 15" />
-              <path d="M22 7c-4 4-6 9-6 15s2 11 6 15" />
-              <path d="M31 31h11v9H31z" />
-              <path d="M34 37h5" />
-              <path d="M36.5 34v6" />
-            </svg>
-          </span>
-          <strong>Multilingual support</strong>
-          <p>Use DealList in multiple languages while matching grocery data against English store listings.</p>
-          <div class="feature-demo" aria-label="DealList language switching preview">
-            <video autoplay muted loop playsinline preload="metadata" poster="deallist-feature-graphic-flyers-20260806.png">
-              <source src="deallist-language-transition.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </article>
+        <article class="feature"><span class="kicker">01 / DISCOVER</span><h3>Compare your options</h3><p>Browse grocery offers and compare stores before you plan your next shopping trip.</p></article>
+        <article class="feature"><span class="kicker">02 / UNDERSTAND</span><h3>Put prices in context</h3><p>Use StatCan or BLS monthly average retail price references for supported foods, with quantity and unit conversions.</p></article>
+        <article class="feature"><span class="kicker">03 / PLAN</span><h3>Turn ideas into a list</h3><p>Start with a meal idea, find ingredients, adjust quantities and keep an estimated total in one place.</p></article>
       </section>
-
+      <section id="screens" class="screens-section" aria-labelledby="screens-title"><div class="section-heading"><div><span class="kicker">A LOOK INSIDE</span><h2 id="screens-title">Meet the iOS experience.</h2></div><p>From finding an offer to finishing your list.</p></div>
+        <p class="gallery-note">Edited app illustrations. Store names, product images and offers are examples, not live deals. Statistical references retain the source and data month shown in the original capture.</p>
+        <div class="screens-gallery" tabindex="0" role="region" aria-label="Five app demonstration images; scroll horizontally to explore">
+<figure><a href="assets/demo/01-flyers-demo.png" target="_blank" rel="noopener" aria-label="Open browse offers demonstration image"><img src="assets/demo/01-flyers-demo.png" loading="lazy" alt="Illustrative flyer grid with generic groceries from Demo Market A" /></a><figcaption><span>01</span> Browse offers</figcaption></figure><figure><a href="assets/demo/02-eggs-demo.png" target="_blank" rel="noopener" aria-label="Open compare stores demonstration image"><img src="assets/demo/02-eggs-demo.png" loading="lazy" alt="Illustrative egg offers from three fictional stores" /></a><figcaption><span>02</span> Compare stores</figcaption></figure><figure><a href="assets/demo/03-search-demo.png" target="_blank" rel="noopener" aria-label="Open find your groceries demonstration image"><img src="assets/demo/03-search-demo.png" loading="lazy" alt="Illustrative milk search result and shopping list controls" /></a><figcaption><span>03</span> Find your groceries</figcaption></figure><figure><a href="assets/demo/04-reference-demo.png" target="_blank" rel="noopener" aria-label="Open compare quantities demonstration image"><img src="assets/demo/04-reference-demo.png" loading="lazy" alt="StatCan reference quantity conversion shown alongside a fictional egg offer" /></a><figcaption><span>04</span> Compare quantities</figcaption></figure><figure><a href="assets/demo/05-shopping-list.png" target="_blank" rel="noopener" aria-label="Open keep a shopping list demonstration image"><img src="assets/demo/05-shopping-list.png" loading="lazy" alt="DealList saved shopping list screen" /></a><figcaption><span>05</span> Keep a shopping list</figcaption></figure>
+        </div>
+      </section>
+      <section class="partner-section" aria-labelledby="partner-title"><span class="kicker">FOR RETAILERS & DATA PARTNERS</span><h2 id="partner-title">Help shoppers plan with your offers.</h2><p>We welcome conversations about authorized flyer content, product feeds and grocery data. Contact us to discuss permission, attribution and integration requirements.</p><a class="button" href="mailto:info@deallist.ca?subject=DealList%20content%20partnership">Discuss a partnership</a></section>
       <a class="support-note" href="/contact/">
         <span class="support-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24">
