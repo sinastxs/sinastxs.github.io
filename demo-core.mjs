@@ -2,7 +2,7 @@
 export const products = [
  {id:'eggs',name:'Eggs',aliases:['egg','eggs'],spec:'Large eggs · 12 count',unit:'each',amount:12,reference:5.75,referenceAmount:12,prices:[4.99,5.29,6.75]},
  {id:'milk',name:'Milk',aliases:['milk','whole milk'],spec:'Whole milk · 2 L',unit:'L',amount:2,reference:6.20,referenceAmount:2,prices:[4.49,4.79,5.19]},
- {id:'chicken',name:'Chicken',aliases:['chicken','whole chicken'],spec:'Whole chicken · per kg',unit:'kg',amount:1,reference:8.50,referenceAmount:1,prices:[7.99,8.49,9.29]}
+ {id:'chicken',name:'Chicken',aliases:['chicken','whole chicken'],spec:'Chicken breast · per kg',unit:'kg',amount:1,reference:8.50,referenceAmount:1,prices:[7.99,8.49,9.29]}
 ];
 export const stores=['Demo Market A','Demo Market B','Demo Market C'];
 export function matchProduct(query){const q=query.toLowerCase().replace(/[^a-z]/g,' ').trim().replace(/\s+/g,' ');return products.find(p=>p.aliases.includes(q))||null;}

@@ -465,12 +465,17 @@
 
       <section id="demo" class="demo-section" aria-labelledby="demo-title">
         <div class="section-heading"><div><span class="kicker">TAKE IT FOR A SPIN</span><h2 id="demo-title">Your next shop, simplified.</h2></div><p>Compare a few groceries and build a list.<br />No account or download needed.</p></div>
-        <div class="demo-shell">
-          <div class="demo-top"><strong>Deal<span>List</span> <small>Interactive demo</small></strong><span class="demo-badge">Example prices · CAD</span></div>
-          <p class="demo-disclosure">Fictional stores and illustrative prices. This demo does not show live offers or fetch AI results.</p>
-          <nav class="demo-tabs" aria-label="Demo views"><button type="button" data-view="flyers" aria-pressed="false">Flyers</button><button type="button" data-view="search" aria-pressed="true">Search & compare</button><button type="button" data-view="list" aria-pressed="false">My list <span id="list-count">0</span></button></nav>
-          <div id="demo-content"></div><p id="demo-status" class="demo-status" role="status" aria-live="polite"></p>
-          <noscript><p>Enable JavaScript to try the interactive demo, or explore the app images below.</p></noscript>
+        <div class="demo-stage">
+          <aside class="demo-guide"><span class="kicker">MADE FOR EVERYDAY SHOPPING</span><h3>A familiar app.<br />Ready to explore.</h3><p>Try the iOS-style experience right here. Pick a grocery, compare your options, and watch your shopping list take shape.</p><ol><li><strong>Find something you need</strong><span>Start with eggs, milk or chicken.</span></li><li><strong>Compare at a glance</strong><span>Browse store offers and change reference units.</span></li><li><strong>Make it your list</strong><span>Add an offer, then adjust quantities in List.</span></li></ol><p class="demo-disclosure">Interactive illustration · CAD<br />Fictional stores and prices. Recipe results are a prepared example, not a live AI response.</p></aside>
+          <div class="demo-shell">
+            <div class="phone-status" aria-hidden="true"><span>9:41</span><span>••• ▰</span></div>
+            <div class="demo-top"><span class="country-chip">CA</span><div class="app-wordmark"><img src="deal-cart-header.png" alt="" /><strong>Deal<span>List</span><small>Canada · Demo</small></strong></div><span class="demo-badge">DEMO</span></div>
+            <div class="app-scroll"><div id="demo-content"></div><p id="demo-status" class="demo-status" role="status" aria-live="polite"></p></div>
+            <div class="app-total"><div><span>Current List Total</span><strong id="app-total-value">$0.00</strong></div><button class="primary-btn" id="open-demo-list">View List <span aria-hidden="true">→</span></button></div>
+            <nav class="demo-tabs" aria-label="Demo views"><button type="button" data-view="flyers" aria-pressed="false"><span class="nav-symbol" aria-hidden="true">◇</span>Flyer</button><button type="button" data-view="search" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg>Search</button><button type="button" data-view="list" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v4H9zM9 11h6M9 15h6"/></svg>List <span id="list-count">0</span></button></nav>
+            <div class="home-indicator" aria-hidden="true"></div>
+            <noscript><p>Enable JavaScript to try the demo, or explore the app images below.</p></noscript>
+          </div>
         </div>
       </section>
       <section class="features" aria-label="DealList features">
